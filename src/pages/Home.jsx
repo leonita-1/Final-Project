@@ -52,7 +52,7 @@ export default function Home() {
         </p>
       </header>
 
-      {/* ── Date picker ─────────────────────── */}
+
       <div className="date-row fade-up">
         <label className="date-label" htmlFor="apod-date">SELECT DATE</label>
         <input
@@ -71,7 +71,7 @@ export default function Home() {
         </button>
       </div>
 
-      {/* ── Content ─────────────────────────── */}
+
       {loading && <span className="spinner" />}
       {error   && <div className="error-box">⚠ {error}</div>}
 

@@ -1,13 +1,3 @@
-// pages/Asteroids.jsx
-// NASA Near-Earth Objects – shows asteroids passing by Earth this week
-//
-// Hooks demonstrated:
-//   useState    – search/filter text, selected sort key
-//   useEffect   – build the date-range URL (today → +7 days)
-//   useMemo     – flatten, filter, and sort the nested NeoWs API response
-//   useCallback – stable handlers for sort + search
-//   useRef      – ref for the table to scroll to on data load
-
 import { useState, useEffect, useMemo, useCallback, useRef } from 'react'
 import { useFetch } from '../hooks/useFetch.js'
 import './Asteroids.css'
@@ -23,7 +13,7 @@ function kmToMiles(km) {
 }
 
 export default function Asteroids() {
-  // useEffect + useState: build the URL once on mount using today's date range
+
   const [url, setUrl] = useState(null)
 
   useEffect(() => {
@@ -39,11 +29,11 @@ export default function Asteroids() {
 
   const { data, loading, error } = useFetch(url)
 
-  // useState: search filter and sort key
-  const [search, setSearch] = useState('')
-  const [sortKey, setSortKey] = useState('miss_km')   // 'miss_km' | 'diameter' | 'velocity'
 
-  // useMemo: flatten the nested {date: [asteroid]} map → array, then filter & sort
+  const [search, setSearch] = useState('')
+  const [sortKey, setSortKey] = useState('miss_km')
+
+
   const asteroids = useMemo(() => {
     if (!data?.near_earth_objects) return []
 
@@ -64,7 +54,7 @@ export default function Asteroids() {
       if (sortKey === 'diameter') {
         const da = a.estimated_diameter.kilometers.estimated_diameter_max
         const db = b.estimated_diameter.kilometers.estimated_diameter_max
-        return db - da   // largest first
+        return db - da
       }
       if (sortKey === 'velocity') {
         return (
@@ -76,17 +66,17 @@ export default function Asteroids() {
     })
   }, [data, search, sortKey])
 
-  // useCallback: stable search handler
+
   const handleSearch = useCallback((e) => {
     setSearch(e.target.value)
   }, [])
 
-  // useCallback: stable sort change
+
   const handleSort = useCallback((key) => {
     setSortKey(key)
   }, [])
 
-  // useRef: scroll table into view
+
   const tableRef = useRef(null)
   useEffect(() => {
     if (asteroids.length && tableRef.current) {
@@ -101,7 +91,7 @@ export default function Asteroids() {
 
   return (
     <div className="page-wrapper">
-      {/* ── Header ───────────────────────────── */}
+
       <header className="ast-header fade-up">
         <span className="tag tag--accent2">NASA NeoWs</span>
         <h1 className="ast-title">Near-Earth<br />Asteroid Tracker</h1>
@@ -111,7 +101,7 @@ export default function Asteroids() {
         </p>
       </header>
 
-      {/* ── Stats ────────────────────────────── */}
+
       {!loading && asteroids.length > 0 && (
         <div className="ast-stats fade-up">
           <div className="stat-card">
@@ -131,7 +121,7 @@ export default function Asteroids() {
         </div>
       )}
 
-      {/* ── Controls ─────────────────────────── */}
+
       {!loading && asteroids.length > 0 && (
         <div className="ast-controls fade-up">
           <input
@@ -160,11 +150,10 @@ export default function Asteroids() {
         </div>
       )}
 
-      {/* ── State ────────────────────────────── */}
       {loading && <span className="spinner" />}
       {error   && <div className="error-box">⚠ {error}</div>}
 
-      {/* ── Table ────────────────────────────── */}
+
       {!loading && asteroids.length > 0 && (
         <div className="ast-table-wrap fade-up" ref={tableRef}>
           <table className="ast-table">
