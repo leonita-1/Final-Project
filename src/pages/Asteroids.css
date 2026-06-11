@@ -1,0 +1,206 @@
+.ast-header { margin-bottom: 2.5rem; }
+
+.ast-title {
+  font-size: clamp(2.2rem, 6vw, 4rem);
+  font-weight: 800;
+  margin-top: 0.75rem;
+  letter-spacing: -0.02em;
+}
+
+.ast-subtitle {
+  color: var(--muted);
+  max-width: 540px;
+  margin-top: 1rem;
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+/* ── Stats row ────────────────────────────── */
+.ast-stats {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.stat-card {
+  flex: 1 1 140px;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.stat-card--danger {
+  border-color: rgba(232,84,148,0.25);
+  background: rgba(232,84,148,0.05);
+}
+
+.stat-value {
+  font-family: var(--font-head);
+  font-size: 2.2rem;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--accent2);
+}
+
+.stat-card--danger .stat-value { color: var(--accent3); }
+
+.stat-label {
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* ── Controls ─────────────────────────────── */
+.ast-controls {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.75rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.ast-search {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  padding: 8px 14px;
+  width: 220px;
+  transition: border-color var(--transition);
+}
+
+.ast-search::placeholder { color: var(--muted); }
+
+.ast-search:focus {
+  outline: none;
+  border-color: var(--accent2);
+}
+
+.sort-buttons {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.sort-label {
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  margin-right: 4px;
+}
+
+.sort-btn {
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  padding: 6px 12px;
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.sort-btn:hover {
+  border-color: var(--accent2);
+  color: var(--accent2);
+}
+
+.sort-btn--active {
+  border-color: var(--accent2);
+  color: var(--accent2);
+  background: rgba(91,141,238,0.1);
+}
+
+/* ── Table ────────────────────────────────── */
+.ast-table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg2);
+}
+
+.ast-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+
+.ast-table thead tr {
+  border-bottom: 1px solid var(--border);
+}
+
+.ast-table th {
+  text-align: left;
+  padding: 10px 14px;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 400;
+  white-space: nowrap;
+}
+
+.ast-table td {
+  padding: 11px 14px;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  color: var(--text);
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.ast-table tbody tr:last-child td { border-bottom: none; }
+
+.ast-table tbody tr {
+  transition: background var(--transition);
+}
+
+.ast-table tbody tr:hover { background: rgba(255,255,255,0.03); }
+
+.row--hazard td:first-child { border-left: 2px solid var(--accent3); }
+.row--close td:first-child  { border-left: 2px solid var(--accent); }
+
+.cell-name { font-weight: 700; }
+
+.ast-link {
+  color: var(--accent2);
+  transition: opacity var(--transition);
+}
+
+.ast-link:hover { opacity: 0.75; text-decoration: underline; }
+
+.cell-sub {
+  display: block;
+  color: var(--muted);
+  font-size: 10px;
+  margin-top: 2px;
+}
+
+.cell-close { color: var(--accent); }
+.cell-date  { color: var(--muted); }
+
+.badge {
+  display: inline-block;
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  padding: 3px 7px;
+  border-radius: 2px;
+  border: 1px solid var(--border);
+  color: var(--muted);
+}
+
+.badge--danger {
+  border-color: rgba(232,84,148,0.4);
+  color: var(--accent3);
+  background: rgba(232,84,148,0.08);
+}

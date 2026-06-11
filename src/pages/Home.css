@@ -1,0 +1,146 @@
+.home-header {
+  margin-bottom: 2.5rem;
+}
+
+.home-title {
+  font-size: clamp(2.2rem, 6vw, 4rem);
+  font-weight: 800;
+  margin-top: 0.75rem;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+.home-subtitle {
+  color: var(--muted);
+  max-width: 540px;
+  margin-top: 1rem;
+  line-height: 1.8;
+  font-size: 13px;
+}
+
+/* ── Date row ─────────────────────────────── */
+.date-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 2.5rem;
+  flex-wrap: wrap;
+}
+
+.date-label {
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.date-input {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: border-color var(--transition);
+  color-scheme: dark;
+}
+
+.date-input:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.btn-today {
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  padding: 8px 14px;
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.btn-today:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: rgba(232,197,71,0.06);
+}
+
+/* ── APOD Card ─────────────────────────────── */
+.apod-card {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--bg2);
+}
+
+.apod-media {
+  position: relative;
+  line-height: 0;
+}
+
+.apod-img {
+  width: 100%;
+  max-height: 70vh;
+  object-fit: cover;
+  display: block;
+}
+
+.apod-hd-link {
+  position: absolute;
+  bottom: 12px;
+  right: 14px;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  background: rgba(7,7,15,0.75);
+  border: 1px solid rgba(232,197,71,0.3);
+  border-radius: var(--radius);
+  padding: 4px 10px;
+  backdrop-filter: blur(6px);
+  transition: background var(--transition);
+}
+
+.apod-hd-link:hover {
+  background: rgba(232,197,71,0.12);
+}
+
+.apod-video-wrap {
+  aspect-ratio: 16 / 9;
+  background: #000;
+}
+
+.apod-video {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.apod-body {
+  padding: 2rem;
+}
+
+.apod-meta {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.apod-title {
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  font-weight: 700;
+  margin-bottom: 1.25rem;
+}
+
+.apod-explanation {
+  color: var(--muted);
+  line-height: 1.9;
+  font-size: 13px;
+  max-width: 72ch;
+}
